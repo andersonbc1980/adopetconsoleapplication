@@ -2,11 +2,7 @@ package br.com.alura.service;
 
 import br.com.alura.client.ClientHttpConfiguration;
 import br.com.alura.domain.Pet;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import tools.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -62,7 +58,7 @@ public class PetService {
         String line;
         while ((line = reader.readLine()) != null) {
             String[] campos = line.split(",");
-            String tipo = campos[0];
+            String tipo = campos[0].toUpperCase();
             String nome = campos[1];
             String raca = campos[2];
             int idade = Integer.parseInt(campos[3]);
